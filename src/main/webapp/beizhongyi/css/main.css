@@ -24,7 +24,9 @@
 .ul_top .name{
     width: 120px;
     height: 70px;
-    background-color: rgba(45,130,110,.9);
+    /*background-color: rgba(45,130,110,.9);*/
+    background: url("../bzyimg/bg.png");
+
     color: #fff;
     margin-top: -70px;
     display: none;
@@ -60,21 +62,18 @@
 .list {
     height: 200px;
     width: 120px;
-    background-color: rgba(45,130,110,.9);
+    /*background-color: rgba(45,130,110,.9);*/
+    background: url("../bzyimg/bg.png");
     color: #fff;
-    z-index: 0;
-    opacity:1;
     display: none;
-
-
 }
 
 .list1{
     height: 120px;
     width: 120px;
-    background-color: rgba(45,130,110,.9);
-    z-index: 0;
-    opacity:1;
+
+
+
 }
 
 

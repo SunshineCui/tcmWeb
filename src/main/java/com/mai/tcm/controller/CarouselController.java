@@ -112,7 +112,7 @@ public class CarouselController {
 
         List<CarouselListDto> carouselListVOList = this.carouselService.selectByCourseListDtoAndPage(page, carouselListDto);
         String path = request.getContextPath();
-        String basePath = request.getScheme()+"://"+request.getServerName()+path;
+        String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
         System.out.print("contextPath:"+basePath+",");
         for (CarouselListDto listDto :carouselListVOList){
             listDto.setPicUrl(basePath+listDto.getPicUrl());
