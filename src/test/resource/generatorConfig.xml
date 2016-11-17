@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!--http://generator.sturgeon.mopaas.com/configreference/javaModelGenerator.html-->
+<!--http://www.jianshu.com/p/e09d2370b796-->
+<!-- 配置Run As Maven build : Goals 参数 : mybatis-generator:generate -Dmybatis.generator.overwrite=true -->
+<!-- 配置 tableName,使用 Run As Maven build 生成 dao model 层 -->
+
+<generatorConfiguration>
+    <!-- 配置文件路径 -->
+    <properties url="${mybatis.generator.generatorConfig.properties}"/>
+
+    <!-- 数据库驱动包路径 -->
+    <classPathEntry location="${drive.class.path}"/>
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <!--关闭注释 旨在创建class时，对注释进行控制 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!-- 数据库连接信息 -->
+        <jdbcConnection driverClass="${jdbc.driver}" connectionURL="${jdbc.url}" userId="${jdbc.username}"
+                        password="${jdbc.password}">
+        </jdbcConnection>
+
+        <!-- 非必需，类型处理器，在数据库类型和java类型之间的转换控制 -->
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+            <!--
+                默认：false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer；
+                true，把JDBC DECIMAL 和NUMERIC 类型解析为java.math.BigDecimal
+            -->
+        </javaTypeResolver>
+
+        <!-- 生成的model 包路径 用来生成含有主键key的类，记录类 以及查询Example类
+        targetPackage     指定生成的model生成所在的包名
+        targetProject     指定在该项目下所在的路径
+        -->
+        <javaModelGenerator targetPackage="${model.package}" targetProject="${target.project}">
+            <!-- 是否对model添加 构造函数 -->
+            <property name="constructorBased" value="true"/>
+
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="ture"/>
+            <!-- 建立的Model对象是否 不可改变  即生成的Model对象不会有 setter方法，只有构造方法 -->
+            <!-- <property name="immutable" value="true"/> -->
+            <!-- 给Model添加一个父类 -->
+            <!-- <property name="rootClass" value="com.foo.louis.Hello"/> -->
+
+            <!-- 从数据库返回的值被清理前后的空格  -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- 生成xml mapper文件 路径 -->
+        <sqlMapGenerator targetPackage="${xml.mapper.package}" targetProject="${target.project}">
+            <property name="enableSubPackages" value="ture"/>
+        </sqlMapGenerator>
+
+        <!-- 生成的Dao接口 的包路径
+        客户端代码，生成易于使用的针对Model对象和XML配置文件 的代码
+                type="ANNOTATEDMAPPER",生成Java Model 和基于注解的Mapper对象
+                type="MIXEDMAPPER",生成基于注解的Java Model 和相应的Mapper对象
+                type="XMLMAPPER",生成SQLMap XML文件和独立的Mapper接口
+        -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="${dao.package}" targetProject="${target.project}">
+            <property name="enableSubPackages" value="ture"/>
+            <!-- 为生成的接口添加父接口 -->
+            <!-- <property name="rootInterface" value=""/> -->
+        </javaClientGenerator>
+
+        <!--<table tableName="user" >
+        <property name="useActualColumnNames" value="true"/>
+    </table>-->
+
+        <!--<table tableName="role" >-->
+            <!--<property name="useActualColumnNames" value="true"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="permission" >-->
+            <!--<property name="useActualColumnNames" value="true"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="school"  >-->
+            <!--<property name="useActualColumnNames" value="true"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="student" >-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="course" >-->
+            <!--<property name="useActualColumnNames" value="true"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="person" >-->
+            <!--<property name="useActualColumnNames" value="true"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="examQuestion"  >-->
+            <!--<property name="useActualColumnNames" value="true"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="examRecord" >-->
+            <!--<property name="useActualColumnNames" value="true"/>-->
+        <!--</table>-->
+
+        <table tableName="carousel" >
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <!--&lt;!&ndash; schema即为数据库名;tableName:用于自动生成代码的数据库表;domainObjectName:对应于数据库表的javaBean类名 &ndash;&gt;-->
+        <!--&lt;!&ndash; 为Oracle数据库时表名必须用大写 &ndash;&gt;-->
+        <!--<table tableName="test_domain_host" domainObjectName="DomainHost">-->
+            <!--&lt;!&ndash; Oracle自增长序列时需要 &ndash;&gt;-->
+            <!--&lt;!&ndash; <generatedKey column="CODE_ID" sqlStatement="select trim(to_char(WLK_SEQ_ANTIFAKE.nextval, '000000000009')) from dual" /> &ndash;&gt;-->
+            <!--<property name="useActualColumnNames" value="false" />-->
+            <!--<columnOverride column="host_type" javaType="net.javaw.example.model.enums.HostType" typeHandler="net.javaw.example.model.enums.handler.HostTypeHandler"/>-->
+            <!--<columnOverride column="icp_status" javaType="net.javaw.example.model.enums.IcpStatus" typeHandler="net.javaw.example.model.enums.handler.IcpStatusTypeHandler"/>-->
+            <!--<columnOverride column="op_status" javaType="net.javaw.example.model.enums.OpResult" typeHandler="net.javaw.example.model.enums.handler.OpResultTypeHandler"/>-->
+
+            <!--&lt;!&ndash; 枚举类转换配置，不配置的话使用默认类型，3种不同的枚举类配置参考 &ndash;&gt;-->
+            <!--&lt;!&ndash; <columnOverride column="HOST_TYPE" javaType="net.javaw.example.model.enums.HostType" typeHandler="net.javaw.example.model.enums.handler.HostTypeHandler"/> &ndash;&gt;-->
+            <!--&lt;!&ndash; <columnOverride column="ICP_STATUS" javaType="net.javaw.example.model.enums.IcpStatus" typeHandler="net.javaw.example.model.enums.handler.IcpStatusTypeHandler"/> &ndash;&gt;-->
+            <!--&lt;!&ndash; <columnOverride column="LOG_OP_STATUS" javaType="net.javaw.example.model.enums.OpResult" typeHandler="net.javaw.example.model.enums.handler.OpResultTypeHandler"/> &ndash;&gt;-->
+
+        <!--</table>-->
+    </context>
+</generatorConfiguration>

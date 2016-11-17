@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="org.aspectj:com.springsource.org.aspectj.lib:1.5.4" type="repository">
+    <properties maven-id="org.aspectj:com.springsource.org.aspectj.lib:1.5.4" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/aspectj/com.springsource.org.aspectj.lib/1.5.4/com.springsource.org.aspectj.lib-1.5.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/aspectj/com.springsource.org.aspectj.runtime/1.5.4/com.springsource.org.aspectj.runtime-1.5.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

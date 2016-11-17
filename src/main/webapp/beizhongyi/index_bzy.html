@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>北中医大学创新创业教育中心</title>
+
+    <link rel="stylesheet" href="css/swiper.min.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+
+</head>
+<body>
+
+<div class="header">
+    <img src="img/img_top.png" alt=""/>
+
+        <ul class="ul_top">
+            <li>
+                双创资讯
+                <div class="name">双创资讯</div>
+                <div class="list list1">
+                    <p>最新通知</p>
+                    <p>创业头条</p>
+                    <p>其他资讯</p>
+                </div>
+            </li>
+            <li>
+                双创教育
+                <div class="name">双创教育</div>
+
+                <div class="list">
+                    <p>创业微课</p>
+                    <p>创业测评</p>
+                    <p>创业训练营</p>
+                    <p>对创导师</p>
+                    <p>创业大赛</p>
+                </div>
+            </li>
+            <li>
+                众创空间
+                <div class="name">众创空间</div>
+
+                <div class="list">
+                    <p>创业政策</p>
+                    <p>工作流程</p>
+                    <p>创客风采</p>
+                    <p>入驻报名</p>
+                    <p>资料下载</p>
+                </div>
+            </li>
+        </ul>
+
+
+
+</div>
+
+<div id="containerdiv" class="swiper-container">
+    <div id="wrapperdiv" class="swiper-wrapper">
+
+        <!--<div class="swiper-slide">-->
+
+            <!--<a href="http://www.baidu.com">-->
+
+                <!--<img src="img/IMG_1844.JPG" alt="1"/>-->
+            <!--</a>-->
+        <!--</div>-->
+
+        <!--<div class="swiper-slide"><img src="img/IMG_1845.JPG" alt="2"/></div>-->
+        <!--<div class="swiper-slide"><img src="img/IMG_1849.JPG" alt="3"/></div>-->
+        <!--<div class="swiper-slide"><img src="img/IMG_1850.JPG" alt="4"/></div>-->
+        <!--<div class="swiper-slide"><img src="img/IMG_1851.JPG" alt="5"/></div>-->
+        <!--<div class="swiper-slide"><img src="img/IMG_1852.JPG" alt="6"/></div>-->
+        <!--<div class="swiper-slide"><img src="img/IMG_1853.JPG" alt="7"/></div>-->
+        <!--<div class="swiper-slide"><img src="img/IMG_1854.JPG" alt="8"/></div>-->
+        <!--<div class="swiper-slide"><img src="img/IMG_1855.JPG" alt="9"/></div>-->
+        <!--<div class="swiper-slide"><img src="img/IMG_1856.JPG" alt="10"/></div>-->
+        <!--<div class="swiper-slide"><img src="img/IMG_1857.JPG" alt="11"/></div>-->
+        <!--<div class="swiper-slide"><img src="img/IMG_1858.JPG" alt="12"/></div>-->
+
+    </div>
+
+    <!-- 新闻资讯-->
+    <div class="news">
+        <h2>新闻资讯</h2>
+
+        <ul id="newul" type="none">
+            <!--<a href="">科学家领衔国际合作研究 首次精准定位</a><br/>-->
+            <!--<a href="">学生社会实践自由组队项目申报公告</a><br/>-->
+            <!--<a href="">暑期"千人百村"社会调研师生招募公告</a><br/>-->
+            <!--<a href="">网上职业发展讲堂继续开播</a><br/>-->
+            <!--<a href="">强化医学建设,在世界医学领域实现领衔</a><br/>-->
+        </ul>
+    </div>
+
+    <!-- Add Pagination -->
+    <!--<div class="swiper-pagination"></div>-->
+</div>
+
+<div class="foot">
+<span class="span_left">版权所有©北京中医药大学</span>
+<span class="span_right">地址:北京市朝阳区北三环东路11号 邮编:100029</span>
+
+</div>
+
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+<script type="text/javascript">
+
+//    var swiper = new Swiper('.swiper-container', {
+//        pagination: '.swiper-pagination',
+//        paginationClickable: true,
+//        autoplay : 5000,
+//    });
+
+
+    $(document).ready(function(){
+
+
+        $(".ul_top li").click(function() {
+
+            $(this).children('.name').toggle();
+            $(this).children('.list').toggle();
+
+            $(this) .siblings()
+                    .children('.list').hide()//将兄弟元素下的 list 元素隐藏
+            $(this) .siblings()
+                    .children('.name').hide();
+
+        })
+
+
+//        p 标签鼠标移动效果
+
+        $(".ul_top p").mouseover(function(){
+            $(this).addClass('p_select');
+        });
+
+        $(".ul_top p").mouseout(function(){
+            $(this).removeClass('p_select');
+        });
+
+
+    });
+
+    $.ajax({
+        type : "get",
+        async:false,
+        url : "/w/carousel/listDto",
+        dataType : "jsonp",
+        jsonpCallback : "jsoncallback",
+        success : function(json){
+            console.log(json);
+
+        //  数据返回成功   遍历数据   添加节点
+
+            var  wrapperdiv = document.getElementById("wrapperdiv");
+
+            for(var i = 0;i<json.length;i++){
+                console.log(json[i].picUrl);
+
+                var ele = document.createElement("div");
+                ele.className="swiper-slide";
+                var a = document.createElement("a");
+                a.href=json[i].jumpURL;
+                var  img = document.createElement("img");
+                img.src=json[i].picUrl;
+                a.appendChild(img);
+                ele.appendChild(a);
+                wrapperdiv.appendChild(ele);
+            }
+
+            var containerdiv = document.getElementById("containerdiv");
+            containerdiv.appendChild(wrapperdiv);
+
+            var pagnation = document.createElement("div");
+            pagnation.className="swiper-pagination";
+            containerdiv.appendChild(pagnation);
+
+            var swiper = new Swiper('.swiper-container', {
+                pagination: '.swiper-pagination',
+                paginationClickable: true,
+                autoplay : 5000,
+            });
+
+        },
+        error:function(a){
+            console.log(a);
+        }
+    });
+
+
+$.ajax({
+    type : "get",
+    async:false,
+    url : "/w/news/listDto",
+    dataType : "jsonp",
+    jsonpCallback : "jsoncall",
+    success : function(json){
+        console.log(json);
+        var ulele = document.getElementById("newul");
+        for(var i = 0;i<json.length;i++) {
+            console.log(json[i].title);
+
+        var aele = document.createElement("a");
+            aele.href=json[i].jumpURL;
+            aele.text=json[i].title;
+            ulele.appendChild(aele);
+            var brele = document.createElement("br");
+            ulele.appendChild(brele);
+        }
+    },
+    error:function(a){
+        console.log(a);
+    }
+});
+
+
+
+</script>
+
+</body>
+</html>

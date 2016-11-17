@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/framework/base/BaseDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/framework/base/BaseException.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/framework/base/BaseService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/framework/base/BaseServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/framework/feature/dialect/Dialect.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/framework/feature/dialect/DialectFactory.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/framework/feature/dialect/MySql5Dialect.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/framework/feature/dialect/MySql5PageHepler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/framework/feature/mybatis/Page.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/framework/feature/mybatis/PaginationResultSetHandlerInterceptor.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/framework/feature/mybatis/PaginationStatementHandlerInterceptor.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/framework/util/ConvertUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/framework/util/JsonHelper.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/framework/util/MD5Util.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/framework/util/StringUtils.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/framework/util/UUIDUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/filter/KickoutSessionControlFilter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/model/BaseVo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/security/MenuEnum.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/security/SecurityRealm.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/service/NewsService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/service/impl/NewsServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/taglib/PaginationTag.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/util/CurrentUser.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/vo/web/CarouselListDto.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/vo/web/UserVo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/application.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/config.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/log4j.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/mybatis-config.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/spring/spring-dao.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/spring/spring-mvc.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/spring/spring-service.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/spring/spring-shiro.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/spring/spring.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pagination.tld" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/ajax/carousel/carousel.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/ajax/carousel/carousellist.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/ajax/news/news.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/ajax/news/newslist.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/resource/generatorConfig.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/resource/generatorConfig.xml" charset="UTF-8" />
+  </component>
+</project>
