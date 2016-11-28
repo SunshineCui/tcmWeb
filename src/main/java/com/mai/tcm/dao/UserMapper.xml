@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mai.tcm.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.mai.tcm.model.User" >
+    <constructor >
+      <idArg column="userID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="personID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="userName" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="password" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="createTime" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="updateTime" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="isValid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="tokenCreateTime" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="token" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="salt" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="loginTime" jdbcType="BIGINT" javaType="java.lang.Long" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    userID, personID, userName, password, createTime, updateTime, isValid, tokenCreateTime, 
+    token, salt, loginTime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mai.tcm.model.UserExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where userID = #{userID,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from user
+    where userID = #{userID,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mai.tcm.model.UserExample" >
+    delete from user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.mai.tcm.model.User" >
+    insert into user (userID, personID, userName, 
+      password, createTime, updateTime, 
+      isValid, tokenCreateTime, token, 
+      salt, loginTime)
+    values (#{userID,jdbcType=VARCHAR}, #{personID,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{createTime,jdbcType=BIGINT}, #{updateTime,jdbcType=BIGINT}, 
+      #{isValid,jdbcType=INTEGER}, #{tokenCreateTime,jdbcType=BIGINT}, #{token,jdbcType=VARCHAR}, 
+      #{salt,jdbcType=VARCHAR}, #{loginTime,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mai.tcm.model.User" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userID != null" >
+        userID,
+      </if>
+      <if test="personID != null" >
+        personID,
+      </if>
+      <if test="userName != null" >
+        userName,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="createTime != null" >
+        createTime,
+      </if>
+      <if test="updateTime != null" >
+        updateTime,
+      </if>
+      <if test="isValid != null" >
+        isValid,
+      </if>
+      <if test="tokenCreateTime != null" >
+        tokenCreateTime,
+      </if>
+      <if test="token != null" >
+        token,
+      </if>
+      <if test="salt != null" >
+        salt,
+      </if>
+      <if test="loginTime != null" >
+        loginTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userID != null" >
+        #{userID,jdbcType=VARCHAR},
+      </if>
+      <if test="personID != null" >
+        #{personID,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="isValid != null" >
+        #{isValid,jdbcType=INTEGER},
+      </if>
+      <if test="tokenCreateTime != null" >
+        #{tokenCreateTime,jdbcType=BIGINT},
+      </if>
+      <if test="token != null" >
+        #{token,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null" >
+        #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="loginTime != null" >
+        #{loginTime,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mai.tcm.model.UserExample" resultType="java.lang.Integer" >
+    select count(*) from user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update user
+    <set >
+      <if test="record.userID != null" >
+        userID = #{record.userID,jdbcType=VARCHAR},
+      </if>
+      <if test="record.personID != null" >
+        personID = #{record.personID,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userName != null" >
+        userName = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null" >
+        password = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        createTime = #{record.createTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.updateTime != null" >
+        updateTime = #{record.updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.isValid != null" >
+        isValid = #{record.isValid,jdbcType=INTEGER},
+      </if>
+      <if test="record.tokenCreateTime != null" >
+        tokenCreateTime = #{record.tokenCreateTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.token != null" >
+        token = #{record.token,jdbcType=VARCHAR},
+      </if>
+      <if test="record.salt != null" >
+        salt = #{record.salt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loginTime != null" >
+        loginTime = #{record.loginTime,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update user
+    set userID = #{record.userID,jdbcType=VARCHAR},
+      personID = #{record.personID,jdbcType=VARCHAR},
+      userName = #{record.userName,jdbcType=VARCHAR},
+      password = #{record.password,jdbcType=VARCHAR},
+      createTime = #{record.createTime,jdbcType=BIGINT},
+      updateTime = #{record.updateTime,jdbcType=BIGINT},
+      isValid = #{record.isValid,jdbcType=INTEGER},
+      tokenCreateTime = #{record.tokenCreateTime,jdbcType=BIGINT},
+      token = #{record.token,jdbcType=VARCHAR},
+      salt = #{record.salt,jdbcType=VARCHAR},
+      loginTime = #{record.loginTime,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mai.tcm.model.User" >
+    update user
+    <set >
+      <if test="personID != null" >
+        personID = #{personID,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        userName = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        createTime = #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        updateTime = #{updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="isValid != null" >
+        isValid = #{isValid,jdbcType=INTEGER},
+      </if>
+      <if test="tokenCreateTime != null" >
+        tokenCreateTime = #{tokenCreateTime,jdbcType=BIGINT},
+      </if>
+      <if test="token != null" >
+        token = #{token,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null" >
+        salt = #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="loginTime != null" >
+        loginTime = #{loginTime,jdbcType=BIGINT},
+      </if>
+    </set>
+    where userID = #{userID,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mai.tcm.model.User" >
+    update user
+    set personID = #{personID,jdbcType=VARCHAR},
+      userName = #{userName,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      createTime = #{createTime,jdbcType=BIGINT},
+      updateTime = #{updateTime,jdbcType=BIGINT},
+      isValid = #{isValid,jdbcType=INTEGER},
+      tokenCreateTime = #{tokenCreateTime,jdbcType=BIGINT},
+      token = #{token,jdbcType=VARCHAR},
+      salt = #{salt,jdbcType=VARCHAR},
+      loginTime = #{loginTime,jdbcType=BIGINT}
+    where userID = #{userID,jdbcType=VARCHAR}
+  </update>
+
+    <!--自定义-->
+    <!-- 用户登录验证查询 -->
+    <select id="authentication" resultMap="BaseResultMap" parameterType="map">
+        select
+        <include refid="Base_Column_List" />
+        from user
+        where userName = #{record.userName,jdbcType=VARCHAR} and password = #{record.password,jdbcType=VARCHAR}
+    </select>
+
+    <!-- 分页条件查询 -->
+    <select id="selectByExampleAndPage" resultMap="BaseResultMap" parameterType="com.mai.tcm.model.User">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List" />
+        from user
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+
+    <resultMap id="BaseResultVoMap" type="com.mai.tcm.vo.web.UserVo" >
+        <constructor >
+            <idArg column="userID" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="personID" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="userName" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="password" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="createTime" jdbcType="BIGINT" javaType="java.lang.Long" />
+            <arg column="updateTime" jdbcType="BIGINT" javaType="java.lang.Long" />
+            <arg column="isValid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+            <arg column="tokenCreateTime" jdbcType="BIGINT" javaType="java.lang.Long" />
+            <arg column="token" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="salt" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="personName" jdbcType="VARCHAR" javaType="java.lang.String" />
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_Vo_List" >
+        userID, user.personID, userName, password, user.createTime, user.updateTime, user.isValid, tokenCreateTime,
+        token, salt,name as personName
+    </sql>
+    <select id="authenticationVo" resultMap="BaseResultVoMap" parameterType="com.mai.tcm.vo.web.UserVo">
+        select
+        <include refid="Base_Column_Vo_List" />
+        from user,person
+        where user.personID = person.personID and userName = #{record.userName,jdbcType=VARCHAR} and password = #{record.password,jdbcType=VARCHAR} and user.isValid = 1
+    </select>
+
+    <select id="selectUserVoByPage" resultMap="BaseResultVoMap" parameterType="com.mai.tcm.vo.web.UserVo">
+        select
+        <include refid="Base_Column_Vo_List" />
+        from user,person
+        <where>
+            user.personID = person.personID
+            <if test="roleID!=null">
+                and EXISTS (select 1 from user_role where user_role.userID = user.userID and roleID = #{roleID})
+            </if>
+            <if test="personName!=null"> and name = #{personName}</if>
+            <if test="userName!=null"> and userName = #{userName}</if>
+            <if test="isValid!=null"> and user.isValid = #{isValid}</if>
+        </where>
+    </select>
+    <select id="getUserVoByID" resultMap="BaseResultVoMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_Vo_List" />
+        from user,person
+        <where>
+            user.personID = person.personID and userID = #{userID}
+        </where>
+    </select>
+</mapper>
