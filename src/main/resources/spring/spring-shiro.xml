@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:util="http://www.springframework.org/schema/util"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="
-       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
 
     <description>apache shiro配置</description>
     <!--
@@ -21,7 +24,7 @@
         <!-- 要求登录时的链接(登录页面地址)，非必须的属性，默认会自动寻找Web工程根目录下的"/login.jsp"页面 -->
         <property name="loginUrl" value="/w/page/login"/>
         <!-- 登录成功后要跳转的连接 -->
-        <property name="successUrl" value="/w/index"/>
+        <property name="successUrl" value="/w/web/index"/>
         <!-- 用户访问未对其授权的资源时，所显示的连接 -->
         <property name="unauthorizedUrl" value="/w/page/401"/>
         <property name="filters">
@@ -37,6 +40,13 @@
                 /app/** = anon
                 /assets/** = anon
                 /resources/** = anon
+                /beizhongyi/** = anon
+                /images/** = anon
+                <!--对外接口-->
+                /w/carousel/listDto = anon
+                /w/news/listDto = anon
+                /w/topColumn/listDto = anon
+
                 <!-- 登录页允许访问 -->
                 /w/user/login = anon
                 <!-- 其他资源需要认证 -->
@@ -57,7 +67,15 @@
     <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
         <property name="sessionDAO" ref="sessionDAO"/>
     </bean>
-
+    <!-- 启用shrio授权注解拦截方式 -->
+    <aop:config proxy-target-class="true"></aop:config>
+    <!--
+       开启Shiro的注解(如@RequiresRoles，@RequiresPermissions)，需借助SpringAOP扫描使用Shiro注解的类，
+       并在必要时进行安全逻辑验证
+    -->
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
     <!-- 安全管理器 -->
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realms">
@@ -69,6 +87,8 @@
         <!-- <property name="cacheManager" ref="shiroEhcacheManager" /> -->
         <!-- <property name="sessionManager" ref="sessionManager" /> -->
     </bean>
+
+
 
     <!-- Shiro生命周期处理器 -->
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>

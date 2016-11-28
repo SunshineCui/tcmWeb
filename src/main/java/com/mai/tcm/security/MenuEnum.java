@@ -13,6 +13,10 @@ public enum MenuEnum {
     TREE_ID_SCHOOL("schoolList","/w/school/edit"),
     TREE_ID_NEWS_LIST("newsList","/w/news/list"),
     TREE_ID_NEWS("newsList","/w/news/edit"),
+    TREE_ID_TOPCOLUMN_LIST("topColumnList","/w/topColumn/list"),
+    TREE_ID_TOPCOLUMN("topColumnList","/w/topColumn/edit"),
+    TREE_ID_COLUMN_LIST("columnList","/w/column/list"),
+    TREE_ID_COLUMN("columnList","/w/column/edit"),
     FILE_UPLOAD_EMO("fileuploaddemo","/w/demo/fileupload");
 
 

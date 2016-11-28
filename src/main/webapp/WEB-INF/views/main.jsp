@@ -23,15 +23,15 @@
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <i class="glyphicon glyphicon-user"></i>
-            <%--<span><%=CurrentUser.getPersonName()%> <i class="caret"></i></span>--%>
+            <span><%=CurrentUser.getPersonName()%> <i class="caret"></i></span>
           </a>
           <ul class="dropdown-menu">
             <!-- User image -->
             <li class="user-header bg-light-blue">
               <%--<img src="${imgPath}/avatar5.png" class="img-circle" alt="User Image" />--%>
               <p>
-                <%--<%=CurrentUser.getPersonName()%>--%>
-                <%--<small><%=CurrentUser.getRoleName()%></small>--%>
+                <%=CurrentUser.getPersonName()%>
+                <small><%=CurrentUser.getRoleName()%></small>
               </p>
             </li>
             <li class="user-footer">
@@ -61,7 +61,7 @@
           <%--<img src="${imgPath}/avatar5.png" class="img-circle" alt="User Image" />--%>
         <%--</div>--%>
         <div class="pull-left info" style="text-align: center">
-          <%--<p>Hello, <%=CurrentUser.getPersonName()%></p>--%>
+          <p>Hello, <%=CurrentUser.getPersonName()%></p>
         </div>
       </div>
       <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -94,6 +94,25 @@
             </li>
           </ul>
         </li>
+          <li class="treeview">
+              <a href="#">
+                  <i class="fa fa-bar-chart-o"></i>
+                  <span>导航栏目管理</span>
+                  <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                  <li class="active">
+                      <a href="javaScript:void(0);" id="<%=MenuEnum.TREE_ID_TOPCOLUMN_LIST.getCode()%>" onclick="openPage($(this).attr('id'),'<%=MenuEnum.TREE_ID_TOPCOLUMN_LIST.getUrl()%>');">
+                          <i class="fa fa-angle-double-right"></i><span>一级栏目列表</span>
+                      </a>
+                  </li>
+                  <li class="active">
+                      <a href="javaScript:void(0);" id="<%=MenuEnum.TREE_ID_COLUMN_LIST.getCode()%>" onclick="openPage($(this).attr('id'),'<%=MenuEnum.TREE_ID_COLUMN_LIST.getUrl()%>');">
+                          <i class="fa fa-angle-double-right"></i><span>二级栏目列表</span>
+                      </a>
+                  </li>
+              </ul>
+          </li>
       </ul>
     </section>
     <!-- /.sidebar -->

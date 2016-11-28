@@ -13,40 +13,43 @@
 <div class="header">
     <img src="bzyimg/img_top.png" alt=""/>
 
-        <ul class="ul_top">
-            <li>
-                双创资讯
-                <div class="name">双创资讯</div>
-                <div class="list list1">
-                    <p>最新通知</p>
-                    <p>创业头条</p>
-                    <p>其他资讯</p>
-                </div>
-            </li>
-            <li>
-                双创教育
-                <div class="name">双创教育</div>
+        <ul class="ul_top" id="ultop">
+            <!--<li>-->
+                <!--双创资讯-->
+                <!--<div class="name">双创资讯</div>-->
+                <!--<div class="list list1">-->
+                    <!--<p><a href="http://www.baidu.com">最新通知</a></p>-->
+                    <!--<p><a href="http://www.baidu.com">最新通知</a></p>-->
+                    <!--<p><a href="http://www.baidu.com">最新通知</a></p>-->
 
-                <div class="list" >
-                    <p>创业微课</p>
-                    <p>创业测评</p>
-                    <p>创业训练营</p>
-                    <p>对创导师</p>
-                    <p>创业大赛</p>
-                </div>
-            </li>
-            <li>
-                众创空间
-                <div class="name">众创空间</div>
+                <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--双创教育-->
+                <!--<div class="name">双创教育</div>-->
 
-                <div class="list">
-                    <p>创业政策</p>
-                    <p>工作流程</p>
-                    <p>创客风采</p>
-                    <p>入驻报名</p>
-                    <p>资料下载</p>
-                </div>
-            </li>
+                <!--<div class="list" >-->
+                    <!--<p>创业微课</p>-->
+                    <!--<p>创业测评</p>-->
+                    <!--<p>创业训练营</p>-->
+                    <!--<p>对创导师</p>-->
+                    <!--<p>创业大赛</p>-->
+                <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--众创空间-->
+                <!--<div class="name">众创空间</div>-->
+
+                <!--<div class="list">-->
+                    <!--<p>创业政策</p>-->
+                    <!--<p>工作流程</p>-->
+                    <!--<p>创客风采</p>-->
+                    <!--<p>入驻报名</p>-->
+                    <!--<p>资料下载</p>-->
+                <!--</div>-->
+            <!--</li>-->
+
+
         </ul>
 
 
@@ -60,13 +63,13 @@
 
             <!--<a href="http://www.baidu.com">-->
 
-                <!--<img src="img/IMG_1844.JPG" alt="1"/>-->
+                <!--<img src="bzyimg/IMG_1860.JPG" alt="1"/>-->
             <!--</a>-->
         <!--</div>-->
 
-        <!--<div class="swiper-slide"><img src="img/IMG_1845.JPG" alt="2"/></div>-->
-        <!--<div class="swiper-slide"><img src="img/IMG_1849.JPG" alt="3"/></div>-->
-        <!--<div class="swiper-slide"><img src="img/IMG_1850.JPG" alt="4"/></div>-->
+        <!--<div class="swiper-slide"><img src="bzyimg/IMG_1845.JPG" alt="2"/></div>-->
+        <!--<div class="swiper-slide"><img src="bzyimg/IMG_1849.JPG" alt="3"/></div>-->
+        <!--<div class="swiper-slide"><img src="bzyimg/IMG_1850.JPG" alt="4"/></div>-->
         <!--<div class="swiper-slide"><img src="img/IMG_1851.JPG" alt="5"/></div>-->
         <!--<div class="swiper-slide"><img src="img/IMG_1852.JPG" alt="6"/></div>-->
         <!--<div class="swiper-slide"><img src="img/IMG_1853.JPG" alt="7"/></div>-->
@@ -91,8 +94,8 @@
         </ul>
     </div>
 
-    <!-- Add Pagination -->
-    <!--<div class="swiper-pagination"></div>-->
+     <!--Add Pagination-->
+    <div class="swiper-pagination"></div>
 </div>
 
 <div class="foot">
@@ -112,35 +115,37 @@
 //    });
 
 
-    $(document).ready(function(){
+//    $(document).ready(function(){
+//
+//
+//        $(".ul_top li").click(function() {
+//
+//            $(this).children('.name').toggle();
+//            $(this).children('.list').toggle();
+//
+//            $(this) .siblings()
+//                    .children('.list').hide()//将兄弟元素下的 list 元素隐藏
+//            $(this) .siblings()
+//                    .children('.name').hide();
+//
+//        })
+//
+//
+////        p 标签鼠标移动效果
+//
+//        $(".ul_top p").mouseover(function(){
+//            $(this).addClass('p_select');
+//        });
+//
+//        $(".ul_top p").mouseout(function(){
+//            $(this).removeClass('p_select');
+//        });
 
 
-        $(".ul_top li").click(function() {
-
-            $(this).children('.name').toggle();
-            $(this).children('.list').toggle();
-
-            $(this) .siblings()
-                    .children('.list').hide()//将兄弟元素下的 list 元素隐藏
-            $(this) .siblings()
-                    .children('.name').hide();
-
-        })
+//    });
 
 
-//        p 标签鼠标移动效果
-
-        $(".ul_top p").mouseover(function(){
-            $(this).addClass('p_select');
-        });
-
-        $(".ul_top p").mouseout(function(){
-            $(this).removeClass('p_select');
-        });
-
-
-    });
-
+//图片获取
     $.ajax({
         type : "get",
         async:false,
@@ -178,7 +183,7 @@
             var swiper = new Swiper('.swiper-container', {
                 pagination: '.swiper-pagination',
                 paginationClickable: true,
-                autoplay : 5000,
+                autoplay : 5000
             });
 
         },
@@ -187,7 +192,7 @@
         }
     });
 
-
+//新闻列表获取
 $.ajax({
     type : "get",
     async:false,
@@ -214,8 +219,103 @@ $.ajax({
 });
 
 
+//顶部按钮获取
+$.ajax({
+    type : "get",
+    async:false,
+    url : "/w/topColumn/listDto",
+    dataType : "jsonp",
+    jsonpCallback : "jsoncalltitle",
+    success : function(json){
+        console.log(json);
+
+
+
+        var ultopELe = document.getElementById("ultop");
+        for(var i = 0;i<json.length;i++) {
+            console.log(json[i].title);
+            console.log(json[i].columnListVoList);
+
+//            添加  li 元素
+            var liEle = document.createElement("li");
+            liEle.innerHTML = json[i].title;
+
+//            添加 name div
+            var namedivEle = document.createElement("div");
+            namedivEle.className = "name";
+            namedivEle.innerHTML = json[i].title;
+            liEle.appendChild(namedivEle);
+
+//            添加  list div
+            var listdivEle = document.createElement("div");
+            listdivEle.className = "list";
+            listdivEle.height = (json[i].columnListVoList.length*40);
+
+//          在list 上添加  p标签和 a 便签
+            for(var o = 0;o<json[i].columnListVoList.length;o++) {
+                console.log(json[i].columnListVoList[o]);
+
+                var pEle = document.createElement("p");
+                pEle.className = "ul_top_p";
+
+                var anameEle = document.createElement("a");
+                anameEle.href = json[i].columnListVoList[o].jumpURL;
+                anameEle.innerHTML = json[i].columnListVoList[o].title;
+                pEle.appendChild(anameEle);
+
+                listdivEle.appendChild(pEle);
+            }
+
+
+            liEle.appendChild(listdivEle);
+            ultopELe.appendChild(liEle);
+
+        }
+
+
+        $(".ul_top li").click(function() {
+
+            $(this).children('.name').toggle();
+            $(this).children('.list').toggle();
+
+            $(this) .siblings()
+                    .children('.list').hide()//将兄弟元素下的 list 元素隐藏
+            $(this) .siblings()
+                    .children('.name').hide();
+
+        });
+
+
+
+
+
+
+
+
+
+
+//        p 标签鼠标移动效果
+
+        $(".ul_top p").mouseover(function(){
+            $(this).addClass('p_select');
+        });
+
+        $(".ul_top p").mouseout(function(){
+            $(this).removeClass('p_select');
+        });
+
+
+    },
+    error:function(a){
+        console.log(a);
+    }
+});
+
 
 </script>
 
 </body>
 </html>
+
+
+

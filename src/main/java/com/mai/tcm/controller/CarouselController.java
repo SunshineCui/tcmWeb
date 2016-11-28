@@ -41,6 +41,7 @@ public class CarouselController {
     private static final Logger logger = Logger.getLogger(CarouselController.class);
 
     private static final String CAROUSEL_PIC_PATH = "/images/carousel/";
+
     @Autowired
     private CarouselService carouselService;
 

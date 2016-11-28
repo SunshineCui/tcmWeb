@@ -17,18 +17,29 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/mai/framework/util/MD5Util.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/mai/framework/util/StringUtils.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/mai/framework/util/UUIDUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/controller/CommonController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/controller/PageController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/controller/UserController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/filter/KickoutSessionControlFilter.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/model/BaseVo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/security/MenuEnum.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/security/PermissionSign.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/security/RoleSign.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/security/SecurityRealm.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/service/ColumnService.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/service/NewsService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/service/TopColumnService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/service/UserService.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/service/impl/NewsServiceImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/service/impl/UserServiceImpl.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/taglib/PaginationTag.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/util/CurrentUser.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/util/VerifyCodeUtil.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/vo/web/CarouselListDto.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/mai/tcm/vo/web/UserVo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/application.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/config.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/ehcache-shiro.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/log4j.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/mybatis-config.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/spring/spring-dao.xml" charset="UTF-8" />
@@ -37,14 +48,25 @@
     <file url="file://$PROJECT_DIR$/src/main/resources/spring/spring-shiro.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/spring/spring.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pagination.tld" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/401.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/404.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/500.jsp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/ajax/carousel/carousel.jsp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/ajax/carousel/carousellist.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/ajax/column/column.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/ajax/column/columnlist.jsp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/ajax/news/news.jsp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/ajax/news/newslist.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/ajax/topColumn/topColumn.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/ajax/topColumn/topColumnlist.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/ajax/user" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/dashboard.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main.jsp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/test/resource/generatorConfig.properties" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/test/resource/generatorConfig.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/resources/generatorConfig.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/resources/generatorConfig.xml" charset="UTF-8" />
   </component>
 </project>

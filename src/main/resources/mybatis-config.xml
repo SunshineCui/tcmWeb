@@ -5,6 +5,9 @@
 <configuration>
     <properties>
         <property name="dialectClass" value="com.mai.framework.feature.dialect.MySql5Dialect"/>
+        <!--输出SQL-->
+        <property name="driver" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
+        <property name="url" value="jdbc:log4jdbc:mysql://..." />
     </properties>
 
     <!-- 配置mybatis的缓存，延迟加载等等一系列属性 -->

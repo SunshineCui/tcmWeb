@@ -106,7 +106,7 @@
             <!--<property name="useActualColumnNames" value="true"/>-->
         <!--</table>-->
 
-        <table tableName="carousel" >
+        <table tableName="top_column" >
             <property name="useActualColumnNames" value="true"/>
         </table>
         <!--&lt;!&ndash; schema即为数据库名;tableName:用于自动生成代码的数据库表;domainObjectName:对应于数据库表的javaBean类名 &ndash;&gt;-->

@@ -7,6 +7,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd
 ">
 	<!--<context:property-placeholder location="classpath:config.properties" />-->
     <import resource="classpath*:spring/spring-service.xml"></import>
+
     <!--加载多个配置文件-->
     <bean id="configProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
         <property name="locations">
